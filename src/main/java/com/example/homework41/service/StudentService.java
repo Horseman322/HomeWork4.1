@@ -1,21 +1,22 @@
-package com.example.homework36.service;
+package com.example.homework41.service;
 
 
 
-import com.example.homework36.component.RecordMapper;
-import com.example.homework36.entity.Avatar;
-import com.example.homework36.entity.Faculty;
-import com.example.homework36.entity.Student;
-import com.example.homework36.exception.AvatarNotFoundException;
-import com.example.homework36.exception.StudentNotFoundException;
-import com.example.homework36.record.FacultyRecord;
-import com.example.homework36.record.StudentRecord;
-import com.example.homework36.repository.AvatarRepository;
-import com.example.homework36.repository.FacultyRepository;
-import com.example.homework36.repository.StudentRepository;
+import com.example.homework41.component.RecordMapper;
+import com.example.homework41.entity.Avatar;
+import com.example.homework41.entity.Faculty;
+import com.example.homework41.entity.Student;
+import com.example.homework41.exception.AvatarNotFoundException;
+import com.example.homework41.exception.StudentNotFoundException;
+import com.example.homework41.record.FacultyRecord;
+import com.example.homework41.record.StudentRecord;
+import com.example.homework41.repository.AvatarRepository;
+import com.example.homework41.repository.FacultyRepository;
+import com.example.homework41.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -99,5 +100,20 @@ public class StudentService {
         Student student = optionalStudent.get();
         student.setAvatar(optionalAvatar.get());
         return recordMapper.toRecord(studentRepository.save(studentRepository.save(student)));
+    }
+
+    public int totalCountOfStudents() {
+        return studentRepository.totalCountOfStudents();
+    }
+
+    public double averageAgeOfStudents() {
+        return studentRepository.averageAgeOfStudents();
+    }
+
+
+    public List<StudentRecord> lastStudents(int count) {
+        return studentRepository.lastStudents(count).stream()
+                .map(recordMapper::toRecord)
+                .collect(Collectors.toList());
     }
 }

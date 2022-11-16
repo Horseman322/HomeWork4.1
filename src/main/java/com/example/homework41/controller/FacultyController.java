@@ -1,11 +1,11 @@
-package com.example.homework36.controller;
+package com.example.homework41.controller;
 
 
 
 
-import com.example.homework36.record.FacultyRecord;
-import com.example.homework36.record.StudentRecord;
-import com.example.homework36.service.FacultyService;
+import com.example.homework41.record.FacultyRecord;
+import com.example.homework41.record.StudentRecord;
+import com.example.homework41.service.FacultyService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

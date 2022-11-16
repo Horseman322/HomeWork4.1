@@ -1,17 +1,22 @@
-package com.example.homework36.controller;
+package com.example.homework41.controller;
 
 
-import com.example.homework36.service.AvatarService;
+import com.example.homework41.record.AvatarRecord;
+import com.example.homework41.service.AvatarService;
 import org.springframework.data.util.Pair;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.Min;
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/avatars")
+@Validated
 public class AvatarController {
 
     private final AvatarService avatarService;
@@ -40,6 +45,12 @@ public class AvatarController {
                 .contentType(MediaType.parseMediaType(pair.getFirst()))
                 .contentLength(pair.getSecond().length)
                 .body(pair.getSecond());
+    }
+
+    @GetMapping
+    public List<AvatarRecord> findByPagination(@RequestParam @Min(0) int page,
+                                               @RequestParam @Min(0) int size){
+        return avatarService.findByPagination(page, size);
     }
 
 }
