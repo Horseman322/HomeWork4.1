@@ -1,13 +1,13 @@
-package com.example.homework36.service;
+package com.example.homework41.service;
 
 
 
-import com.example.homework36.component.RecordMapper;
-import com.example.homework36.entity.Faculty;
-import com.example.homework36.exception.FacultyNotFoundException;
-import com.example.homework36.record.FacultyRecord;
-import com.example.homework36.record.StudentRecord;
-import com.example.homework36.repository.FacultyRepository;
+import com.example.homework41.component.RecordMapper;
+import com.example.homework41.entity.Faculty;
+import com.example.homework41.exception.FacultyNotFoundException;
+import com.example.homework41.record.FacultyRecord;
+import com.example.homework41.record.StudentRecord;
+import com.example.homework41.repository.FacultyRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

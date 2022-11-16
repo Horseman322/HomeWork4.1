@@ -1,4 +1,4 @@
-package com.example.homework36.exception;
+package com.example.homework41.exception;
 
 public class StudentNotFoundException extends RuntimeException{
 

@@ -1,16 +1,21 @@
-package com.example.homework36.controller;
+package com.example.homework41.controller;
 
 
-import com.example.homework36.record.FacultyRecord;
-import com.example.homework36.record.StudentRecord;
-import com.example.homework36.service.StudentService;
+import com.example.homework41.record.FacultyRecord;
+import com.example.homework41.record.StudentRecord;
+import com.example.homework41.service.StudentService;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping("/students")
+@Validated
 public class StudentController {
 
     private final StudentService studentService;
@@ -60,6 +65,21 @@ public class StudentController {
     public StudentRecord patchStudentAvatar(@PathVariable long id,
                              @RequestParam("avatarI d") long avatarId){
         return studentService.patchStudentAvatar(id, avatarId);
+    }
+
+    @GetMapping("/totalCount")
+    public int totalCountOfStudents(){
+        return studentService.totalCountOfStudents();
+    }
+
+    @GetMapping("/averageAge")
+    public double averageAgeOfStudents() {
+        return studentService.averageAgeOfStudents();
+    }
+
+    @GetMapping("/lastStudents")
+    public List<StudentRecord> LastStudents(@RequestParam @Min(1) @Max(10) int count){
+        return studentService.lastStudents(count);
     }
 
 }

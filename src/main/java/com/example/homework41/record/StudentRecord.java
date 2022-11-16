@@ -1,4 +1,4 @@
-package com.example.homework36.record;
+package com.example.homework41.record;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

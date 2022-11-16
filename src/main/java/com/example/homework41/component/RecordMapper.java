@@ -1,11 +1,11 @@
-package com.example.homework36.component;
+package com.example.homework41.component;
 
-import com.example.homework36.entity.Avatar;
-import com.example.homework36.entity.Faculty;
-import com.example.homework36.entity.Student;
-import com.example.homework36.record.AvatarRecord;
-import com.example.homework36.record.FacultyRecord;
-import com.example.homework36.record.StudentRecord;
+import com.example.homework41.entity.Avatar;
+import com.example.homework41.entity.Faculty;
+import com.example.homework41.entity.Student;
+import com.example.homework41.record.AvatarRecord;
+import com.example.homework41.record.FacultyRecord;
+import com.example.homework41.record.StudentRecord;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -45,7 +45,6 @@ public class RecordMapper {
         Student student = new Student();
         student.setName(studentRecord.getName());
         student.setAge(studentRecord.getAge());
-        student.setFaculty(toEntity(studentRecord.getFaculty()));
         if(studentRecord.getFaculty()!=null){
             student.setFaculty(toEntity(studentRecord.getFaculty()));
         }
